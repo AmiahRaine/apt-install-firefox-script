@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Script made by Amiah to automate the process of installing firefox via apt after removing snap.
-# Credits to https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 for the guide on installing firefox using apt and terminal.
+# Credits to https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 for the guide on installing firefox without snap.
 #
 echo -e "This script will install Firefox via apt. This script is intended to be used after removing snap, which can result in a dependency error when trying to install Firefox via apt.\n"
 
