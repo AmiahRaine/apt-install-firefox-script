@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Script made by Amiah to automate the process of installing firefox via apt after removing snap.
-# Credits to https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 for the guide on installing firefox without snap.
+# Credits to https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 for the guide on installing firefox using apt and terminal.
 #
 echo -e "This script will install Firefox via apt. This script is intended to be used after removing snap, which can result in a dependency error when trying to install Firefox via apt.\n"
 
@@ -54,19 +54,19 @@ if [[ "${choice}" == [Yy] ]]; then
     # sources.list.d stuff #
     ########################
 
-    echo "Checking directory sources.list.d for existence of file mozilla.list..."
+    echo "Checking directory sources.list.d for existence of file 'mozilla.list'..."
     if [[ -f /etc/apt/sources.list.d/mozilla.list ]]; then
-        echo "[✓] mozilla.list already exists."
+        echo "[✓] 'mozilla.list' already exists."
     else
-        echo "Creating file mozilla.list in directory /etc/apt/sources.list.d..."
+        echo "Creating file 'mozilla.list' in directory /etc/apt/sources.list.d..."
         sudo touch /etc/apt/sources.list.d/mozilla.list
     fi
 
-    echo "Checking contents of file mozilla.list..."
+    echo "Checking contents of file 'mozilla.list'..."
     if fgrep -q "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" /etc/apt/sources.list.d/mozilla.list; then
         echo "[✓] mozilla.list already contains correct signing key information.";
     else
-        echo "Adding imported key to file mozilla.list..."
+        echo "Adding imported key to file 'mozilla.list'..."
         echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main" | sudo tee -a /etc/apt/sources.list.d/mozilla.list > /dev/null
     fi
 
@@ -79,15 +79,15 @@ if [[ "${choice}" == [Yy] ]]; then
     # preferences.d stuff #
     #######################
 
-    echo "Checking directory preferences.d for existence of file mozilla..."
-    if [[ -f /etc/apt/sources.list.d/mozilla.list ]]; then
-        echo "[✓] mozilla.list already exists."
+    echo "Checking directory preferences.d for existence of file 'mozilla'..."
+    if [[ -f /etc/apt/preferences.d/mozilla ]]; then
+        echo "[✓] The file 'mozilla' already exists."
     else
-        echo "Creating file mozilla.list in directory /etc/apt/preferences.d..."
+        echo "Creating file 'mozilla' in directory /etc/apt/preferences.d..."
         sudo touch /etc/apt/preferences.d/mozilla
     fi
 
-    echo -e "Setting package priority to: \n"
+    echo -e "Setting package priority: \n"
     echo -e "Package: *\nPin: origin packages.mozilla.org\nPin-Priority: 1000" | sudo tee /etc/apt/preferences.d/mozilla
 
     # Print a line across width of terminal
