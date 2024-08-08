@@ -1,4 +1,3 @@
-# Install Firefox after removing snaps
+This shell script installs Firefox on Debian based systems using apt. It automatically imports the Mozilla signing key and pins the .deb version, which should resolve dependency errors that may happen otherwise.
 
-A shell script that installs Firefox after removing snaps. Typically, you will get a dependency error when doing "sudo apt install firefox" after removing snaps.
-The process of installing Firefox after removing snaps is tedious considering that removing snaps also removes the Firefox you already had installed, hence this script to automate the process. 
+This script is particularly useful if you wish to use the regular Firefox and not Firefox ESR on your Debian system, or if you are using Ubuntu and want to install Firefox without using snaps.
