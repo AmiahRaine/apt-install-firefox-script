@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # Script made by Amiah to automate the process of installing firefox on Debian based systems
-# Credits to https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04 for the guide on installing firefox using apt and terminal.
 #
 echo -e "This script will install Firefox via apt. This script will import the Mozilla signing key, and pin the .deb version.\n"
 
